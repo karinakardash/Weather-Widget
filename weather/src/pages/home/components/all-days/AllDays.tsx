@@ -77,7 +77,7 @@ export const AllDays: React.FC<AllDaysProps> = () => {
       <Tabs />
       <div className={styles.days}>
         {days.map((day: Day) => (
-          <Card oneDay={day} />
+          <Card oneDay={day} key={day.day} />
         ))}
       </div>
     </>
