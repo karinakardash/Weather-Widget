@@ -1,5 +1,6 @@
 import styles from "./AllDays.module.scss";
 import { Card } from "./Card";
+import { Tabs } from "./Tabs";
 
 type AllDaysProps = {};
 
@@ -72,10 +73,13 @@ export const AllDays: React.FC<AllDaysProps> = () => {
     },
   ];
   return (
-    <div className={styles.days}>
-      {days.map((day: Day) => (
-        <Card oneDay={day} />
-      ))}
-    </div>
+    <>
+      <Tabs />
+      <div className={styles.days}>
+        {days.map((day: Day) => (
+          <Card oneDay={day} />
+        ))}
+      </div>
+    </>
   );
 };

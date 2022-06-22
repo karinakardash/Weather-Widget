@@ -2,14 +2,14 @@ import styles from "./DayInfo.module.scss";
 import cloud from "../../../../assets/images/cloud.png";
 import { IndicatorSvgSelector } from "../../../../assets/icons/indicators/IndicatorSvgSelector";
 
-type DayInfoItem = {
+export type DayInfoItemType = {
   icon_id: string;
   name: string;
   value: string;
 };
 
 type DayInfoItemProps = {
-  item: DayInfoItem;
+  item: DayInfoItemType;
 };
 
 export const DayInfoItem: React.FC<DayInfoItemProps> = ({ item }) => {
@@ -53,7 +53,7 @@ export const DayInfo: React.FC<DayInfoProps> = () => {
   return (
     <div className={styles.this__day_info}>
       <div className={styles.this__day_info_items}>
-        {items.map((item: DayInfoItem) => (
+        {items.map((item: DayInfoItemType) => (
           <DayInfoItem key={item.icon_id} item={item} />
         ))}
       </div>
