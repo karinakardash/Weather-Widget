@@ -1,6 +1,7 @@
 import styles from "./DayInfo.module.scss";
 import cloud from "../../../../assets/images/cloud.png";
 import { IndicatorSvgSelector } from "../../../../assets/icons/indicators/IndicatorSvgSelector";
+import { Weather } from "../../../../store/types/types";
 
 export type DayInfoItemType = {
   icon_id: string;
@@ -25,29 +26,33 @@ export const DayInfoItem: React.FC<DayInfoItemProps> = ({ item }) => {
   );
 };
 
-type DayInfoProps = {};
+type DayInfoProps = {
+  weather: Weather;
+};
 
-export const DayInfo: React.FC<DayInfoProps> = () => {
+export const DayInfo: React.FC<DayInfoProps> = ({ weather }) => {
   const items = [
     {
       icon_id: "temp",
-      name: "Температура",
-      value: "20° - ощущается как 17°",
-    },
-    {
-      icon_id: "pressure",
-      name: "Давление",
-      value: "765 мм ртутного столба - нормальное",
+      name: "Temperature",
+      value: `${Math.floor(weather.main.temp)}° - feels like ${Math.floor(
+        weather.main.feels_like
+      )}°`,
     },
     {
       icon_id: "precipitation",
-      name: "Осадки",
-      value: "Без осадков",
+      name: "Humidity",
+      value: `${weather.main.humidity}%`,
+    },
+    {
+      icon_id: "pressure",
+      name: "Pressure",
+      value: `${weather.main.pressure} mm`,
     },
     {
       icon_id: "wind",
-      name: "Ветер",
-      value: "3 м/с юго-запад - легкий ветер",
+      name: "Wind",
+      value: `${weather.wind.speed} m/s`,
     },
   ];
   return (

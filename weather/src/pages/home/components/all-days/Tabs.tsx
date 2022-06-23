@@ -9,13 +9,10 @@ type Tab = {
 export const Tabs: React.FC<TabsProps> = () => {
   const tabs: Tab[] = [
     {
-      value: "На неделю",
+      value: "Today",
     },
     {
-      value: "На 10 дней",
-    },
-    {
-      value: "На месяц",
+      value: "Tommorow",
     },
   ];
   return (
@@ -27,7 +24,6 @@ export const Tabs: React.FC<TabsProps> = () => {
           </div>
         ))}
       </div>
-      <div className={styles.cancel}>Отменить</div>
     </div>
   );
 };

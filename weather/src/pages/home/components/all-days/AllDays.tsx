@@ -1,8 +1,11 @@
+import { ForecastWeatherType } from "../../../../store/types/types";
 import styles from "./AllDays.module.scss";
 import { Card } from "./Card";
 import { Tabs } from "./Tabs";
 
-type AllDaysProps = {};
+type AllDaysProps = {
+  forecastWeather: ForecastWeatherType;
+};
 
 export type Day = {
   day: string;
@@ -13,10 +16,21 @@ export type Day = {
   info: string;
 };
 
-export const AllDays: React.FC<AllDaysProps> = () => {
-  const days: Day[] = [
+export const AllDays: React.FC<AllDaysProps> = ({ forecastWeather }) => {
+  const forecastDays = forecastWeather.list;
+
+  console.log(forecastDays);
+
+  /*const forecastToday = forecastDays.map((item, index) => {
+    for (index; index <= 3; index++) {
+      return item;
+    }
+  });
+  console.log(forecastToday);*/
+
+  /*const days: Day[] = [
     {
-      day: "Сегодня",
+      day: `today`,
       day_info: "28 авг",
       icon_id: "sun",
       temp_day: "+18",
@@ -71,13 +85,13 @@ export const AllDays: React.FC<AllDaysProps> = () => {
       temp_night: "+15",
       info: "Облачно",
     },
-  ];
+  ];*/
   return (
     <>
       <Tabs />
       <div className={styles.days}>
-        {days.map((day: Day) => (
-          <Card oneDay={day} key={day.day} />
+        {forecastDays.map((day) => (
+          <Card oneDay={day} key={day.dt_txt} />
         ))}
       </div>
     </>
