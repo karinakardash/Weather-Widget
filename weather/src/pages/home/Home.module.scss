@@ -1,5 +1,42 @@
+@import "../../styles/variables.scss";
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  max-width: 750px;
+  width: 100%;
+  background: $light-background;
+  box-shadow: $box-shadow;
+  border-radius: $border-radius;
+  background: $light-background;
+  margin-top: 200px;
+}
 .day__container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+}
+.overlayContainer {
+  position: relative;
+  height: 0;
+  width: 100%;
+}
+.overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 110;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.overlayContainerClose {
+  display: none;
 }

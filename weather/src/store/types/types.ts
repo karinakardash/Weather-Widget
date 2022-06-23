@@ -1,5 +1,5 @@
 export type Weather = {
-  dt_txt?: string;
+  dt_txt: string;
   main: {
     temp: number;
     pressure: number;

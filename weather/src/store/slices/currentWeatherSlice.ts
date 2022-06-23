@@ -15,6 +15,7 @@ type Response = {
 
 const initialState: CurrentWeather = {
   weather: {
+    dt_txt: "0",
     main: {
       temp: 0,
       pressure: 0,
