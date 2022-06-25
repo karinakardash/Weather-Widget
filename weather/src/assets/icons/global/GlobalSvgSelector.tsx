@@ -52,9 +52,9 @@ export const GlobalSvgSelector: React.FC<GlobalSvgSelectorProps> = ({ id }) => {
     case "change-theme":
       return (
         <svg
-          width="35"
-          height="35"
-          viewBox="0 0 35 35"
+          width="45"
+          height="45"
+          viewBox="0 0 33 33"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >

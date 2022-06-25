@@ -31,3 +31,25 @@
   font-size: 25px;
   color: $primary-color;
 }
+
+.input {
+  width: 194px;
+  border: 2px solid $primary-color;
+  border-radius: 10px;
+  z-index: 100;
+  background-color: var(#{--components-background-default});
+  padding: 7px 5px;
+  cursor: pointer;
+
+  input {
+    padding: 3px 0px;
+    border: none;
+    background-color: var(#{--components-background-default});
+    outline: none;
+    cursor: pointer;
+
+    ::placeholder {
+      color: var(#{--text-color-default});
+    }
+  }
+}

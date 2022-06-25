@@ -13,6 +13,6 @@ export const fetchCurrentWeather =
         dispatch(currentWeatherSlice.actions.fetchCurrentWeatherError(res));
       }
     } catch (error) {
-      console.log(error);
+      alert("City is not found, try again");
     }
   };

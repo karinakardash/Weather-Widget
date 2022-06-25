@@ -12,15 +12,35 @@ import { DayInfo } from "./components/day-info/DayInfo";
 import { Day } from "./components/day/Day";
 import styles from "./Home.module.scss";
 import { setSelectedCard } from "../../store/slices/selectedCardSlice";
+import { Tabs, TabValues } from "./components/all-days/Tabs";
+import { Header } from "../../features/header/Header";
 
 type HomeProps = {};
 
+const TABS_LIST = Object.values(TabValues);
+
+const today = new Date();
+const dd = String(today.getDate()).padStart(2, "0");
+const mm = String(today.getMonth() + 1).padStart(2, "0");
+var yyyy = today.getFullYear();
+let todayFormatted = yyyy + "-" + mm + "-" + dd;
+
+const tomorrow = new Date();
+tomorrow.setDate(tomorrow.getDate() + 1);
+const ddTomorrow = String(tomorrow.getDate()).padStart(2, "0");
+const mmTomorrow = String(tomorrow.getMonth() + 1).padStart(2, "0");
+var yyyyTomorrow = tomorrow.getFullYear();
+let tommorowFormatted = yyyyTomorrow + "-" + mmTomorrow + "-" + ddTomorrow;
+
 export const Home: React.FC<HomeProps> = () => {
   const dispatch = useCustomDispatch();
+  const [location, setLocation] = useState("");
+
   const { weather } = useCustomSelector(selectCurrentWeatherData);
   const { weather: forecastWeather } = useCustomSelector(
     selectForecastWeatherData
   );
+
   useEffect(() => {
     dispatch(fetchCurrentWeather("paris"));
   }, []);
@@ -28,6 +48,13 @@ export const Home: React.FC<HomeProps> = () => {
   useEffect(() => {
     dispatch(fetchForecastWeather("paris"));
   }, []);
+
+  const searchLocation = (event: KeyboardEvent) => {
+    if (event?.key === "Enter") {
+      dispatch(fetchCurrentWeather(location));
+      dispatch(fetchForecastWeather(location));
+    }
+  };
 
   const forecastDays = forecastWeather.list;
   const [popupVisible, setPopupVisible] = useState<boolean>(false);
@@ -39,8 +66,36 @@ export const Home: React.FC<HomeProps> = () => {
       ? forecastDays.find((card) => card.dt_txt === selectedCardId)
       : null;
 
+  const [selectedTab, setSelectedTab] = useState(TabValues.TODAY);
+
+  const todayForecast = forecastDays.filter((item) => {
+    if (item.dt_txt.slice(0, 10) === todayFormatted) {
+      return item;
+    }
+  });
+
+  const tommorowForecast = forecastDays.filter((item) => {
+    if (item.dt_txt.slice(0, 10) === tommorowFormatted) {
+      return item;
+    }
+  });
+
+  const getSelectedTabCards = (selectedTab: TabValues) => {
+    switch (selectedTab) {
+      case TabValues.TODAY:
+        return todayForecast;
+      case TabValues.TOMORROW:
+        return tommorowForecast;
+    }
+  };
+
   return (
     <div className={styles.home}>
+      <Header
+        value={location}
+        onChange={(event: any) => setLocation(event.target.value)}
+        onKeyPress={searchLocation}
+      />
       {selectedCardId != null ? (
         <div
           className={
@@ -54,7 +109,7 @@ export const Home: React.FC<HomeProps> = () => {
             <Popup
               className={styles.popup}
               {...selectedCard}
-              onClick={(event) => {
+              onClick={(event: any) => {
                 setPopupVisible(false);
                 event.preventDefault();
               }}
@@ -63,11 +118,16 @@ export const Home: React.FC<HomeProps> = () => {
         </div>
       ) : null}
       <div className={styles.day__container}>
-        <Day weather={weather} />
+        <Day weather={weather} location={location} />
         <DayInfo weather={weather} />
       </div>
+      <Tabs
+        tabs={TABS_LIST}
+        selectedTab={selectedTab}
+        onTabClick={setSelectedTab}
+      />
       <AllDays
-        forecastWeather={forecastWeather}
+        forecastWeather={getSelectedTabCards(selectedTab)}
         onPreviewClick={(dt_txt) => {
           dispatch(setSelectedCard(dt_txt));
           setPopupVisible(true);

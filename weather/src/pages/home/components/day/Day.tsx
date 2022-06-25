@@ -3,9 +3,10 @@ import styles from "./Day.module.scss";
 
 type DayProps = {
   weather: Weather;
+  location: string;
 };
 
-export const Day: React.FC<DayProps> = ({ weather }) => {
+export const Day: React.FC<DayProps> = ({ weather, location }) => {
   const imgSrc = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
   return (
     <div className={styles.this__day}>
@@ -23,7 +24,7 @@ export const Day: React.FC<DayProps> = ({ weather }) => {
           {weather.weather[0].description}
         </div>
         <div className={styles.this__city}>
-          City: <span>Санкт-Петербург</span>
+          City: <span>{location ? location : "Minsk"}</span>
         </div>
       </div>
     </div>

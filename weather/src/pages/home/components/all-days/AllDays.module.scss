@@ -2,13 +2,13 @@
 
 .days {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   padding: 20px;
   width: 100%;
   background-color: var(#{--components-background-default});
   box-shadow: $box-shadow;
   border-radius: 0 0 $border-radius $border-radius;
+  overflow-x: scroll;
 }
 
 .card {
@@ -17,43 +17,48 @@
   background-color: var(#{--card-background-default});
   border-radius: 10px;
   padding: 10px;
-  width: 149px;
+  width: 169px;
   transition: 0.3s;
   cursor: pointer;
-
-  .day {
-    margin-bottom: 7px;
-    font-size: 18px;
-    color: var(#{--text-color-default});
-  }
-
-  .day__info {
-    font-size: 14px;
-    margin-bottom: 12px;
-    color: $base-color;
-  }
-  .img {
-    margin-bottom: 12px;
-  }
-
-  .temp__day {
-    font-size: 18px;
-    color: var(#{--text-color-default});
-  }
-
-  .temp__night {
-    font-size: 13px;
-    color: $base-color;
-    margin-bottom: 6px;
-  }
-  .info {
-    font-size: 13px;
-    color: $base-color;
-  }
+  margin-right: 20px;
+  flex-shrink: 0;
 
   &:hover {
-    box-shadow: 0px 3px 20px var(#{--card-shadow-default});
+    box-shadow: 0px 0px 10px $primary-color;
   }
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.day {
+  margin-bottom: 7px;
+  font-size: 18px;
+  color: var(#{--text-color-default});
+}
+
+.day__info {
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: $base-color;
+}
+.img {
+  margin-bottom: 12px;
+}
+
+.temp__day {
+  font-size: 18px;
+  color: var(#{--text-color-default});
+}
+
+.temp__night {
+  font-size: 13px;
+  color: $base-color;
+  margin-bottom: 6px;
+}
+.info {
+  font-size: 13px;
+  color: $base-color;
 }
 
 .tabs {
@@ -81,13 +86,11 @@
   margin-right: 0;
 }
 
-.tab {
-  &.active {
-    background: $primary-color;
-    color: #fff;
-  }
-}
-
 .tabs__wrapper {
   display: flex;
+}
+
+.tab__active {
+  background: $primary-color;
+  color: #fff;
 }

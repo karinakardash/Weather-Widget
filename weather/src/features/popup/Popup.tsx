@@ -1,10 +1,8 @@
-import { MouseEventHandler, useState } from "react";
 import { GlobalSvgSelector } from "../../assets/icons/global/GlobalSvgSelector";
 import {
   DayInfoItem,
   DayInfoItemType,
 } from "../../pages/home/components/day-info/DayInfo";
-import { Weather } from "../../store/types/types";
 import styles from "./Popup.module.scss";
 
 type PopupProps = {
