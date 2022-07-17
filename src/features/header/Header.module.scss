@@ -16,6 +16,10 @@
 .logo {
   margin-right: 20px;
   cursor: pointer;
+
+  @media (max-width: 550px) {
+    margin-right: 10px;
+  }
 }
 
 .logo {
@@ -30,6 +34,10 @@
   font-weight: bold;
   font-size: 25px;
   color: $primary-color;
+
+  @media (max-width: 550px) {
+    font-size: 20px;
+  }
 }
 
 .input {
@@ -41,12 +49,19 @@
   padding: 7px 5px;
   cursor: pointer;
 
+  @media (max-width: 550px) {
+    width: 154px;
+  }
+
   input {
     padding: 3px 0px;
     border: none;
     background-color: var(#{--components-background-default});
     outline: none;
     cursor: pointer;
+    @media (max-width: 550px) {
+      width: 144px;
+    }
 
     ::placeholder {
       color: var(#{--text-color-default});

@@ -42,11 +42,11 @@ export const Home: React.FC<HomeProps> = () => {
   );
 
   useEffect(() => {
-    dispatch(fetchCurrentWeather("paris"));
+    dispatch(fetchCurrentWeather("minsk"));
   }, []);
 
   useEffect(() => {
-    dispatch(fetchForecastWeather("paris"));
+    dispatch(fetchForecastWeather("minsk"));
   }, []);
 
   const searchLocation = (event: KeyboardEvent) => {

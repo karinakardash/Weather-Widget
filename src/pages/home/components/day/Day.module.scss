@@ -7,6 +7,24 @@
   background: var(#{--components-background-default});
   box-shadow: $box-shadow;
   border-radius: $border-radius;
+
+  @media (max-width: 1200px) {
+    padding: 10px;
+  }
+  @media (max-width: 1000px) {
+    max-width: 300px;
+  }
+  @media (max-width: 855px) {
+    max-width: 250px;
+  }
+  @media (max-width: 650px) {
+    max-width: 200px;
+  }
+  @media (max-width: 500px) {
+    max-width: 500px;
+    padding: 10px 40px;
+    margin-bottom: 10px;
+  }
 }
 
 .top__block {
@@ -18,15 +36,31 @@
   img {
     width: 140px;
     height: 140px;
+
+    @media (max-width: 650px) {
+      width: 100px;
+      height: 100px;
+    }
+    @media (max-width: 500px) {
+      width: 140px;
+      height: 140px;
+    }
   }
   .this__temp {
     font-size: 96px;
     font-weight: 500;
     color: $primary-color;
+    @media (max-width: 650px) {
+      font-size: 66px;
+    }
   }
   .this__day_name {
     font-size: 40px;
     color: var(#{--text-color-default});
+
+    @media (max-width: 650px) {
+      font-size: 26px;
+    }
   }
 }
 
@@ -35,5 +69,9 @@
   .this__city {
     color: $base-color;
     font-size: 25px;
+
+    @media (max-width: 650px) {
+      font-size: 18px;
+    }
   }
 }
