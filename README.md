@@ -7,6 +7,7 @@ https://guarded-coast-94050.herokuapp.com/
 Technologies:
 
 <li>REACT TYPESCRIPT</li>
+<li>SCSS</li>
 <li>REDAX THUNK</li>
 <li>AXIOS</li>
 
