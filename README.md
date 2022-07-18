@@ -1,4 +1,15 @@
-# Getting Started with Create React App
+#  Weather Widget
+
+In this application you can select a city and see the hourly forecast for today/tomorrow.
+
+https://guarded-coast-94050.herokuapp.com/
+
+Technologies:
+
+<li>REACT TYPESCRIPT</li>
+<li>REDAX THUNK</li>
+<li>AXIOS</li>
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
