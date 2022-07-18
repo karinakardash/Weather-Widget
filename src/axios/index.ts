@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
+  baseURL: "https://api.openweathermap.org/data/2.5",
 });
 
 api.interceptors.request.use((config) => {
@@ -11,7 +11,7 @@ api.interceptors.request.use((config) => {
 });
 
 export const apiPro = axios.create({
-  baseURL: process.env.REACT_APP_API_PRO_URL,
+  baseURL: "https://api.openweathermap.org/data/2.5",
 });
 
 apiPro.interceptors.request.use((config) => {
