@@ -6,7 +6,10 @@ export const api = axios.create({
 
 api.interceptors.request.use((config) => {
   config.url =
-    config.url + "&units=metric" + "&appid=" + process.env.REACT_APP_API_KEY;
+    config.url +
+    "&units=metric" +
+    "&appid=" +
+    "e8f1bf04488ed01e7557d40bed6c9f4e";
   return config;
 });
 
@@ -19,6 +22,6 @@ apiPro.interceptors.request.use((config) => {
     config.url +
     "&units=metric" +
     "&appid=" +
-    process.env.REACT_APP_API_PRO_KEY;
+    "e45ec6bff1f6c8cae1002ee0a201b75b";
   return config;
 });
