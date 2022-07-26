@@ -19,17 +19,17 @@ type HomeProps = {};
 
 const TABS_LIST = Object.values(TabValues);
 
-const today = new Date();
-const dd = String(today.getDate()).padStart(2, "0");
-const mm = String(today.getMonth() + 1).padStart(2, "0");
-var yyyy = today.getFullYear();
+let today = new Date();
+let dd = String(today.getDate()).padStart(2, "0");
+let mm = String(today.getMonth() + 1).padStart(2, "0");
+let yyyy = today.getFullYear();
 let todayFormatted = yyyy + "-" + mm + "-" + dd;
 
-const tomorrow = new Date();
+let tomorrow = new Date();
 tomorrow.setDate(tomorrow.getDate() + 1);
-const ddTomorrow = String(tomorrow.getDate()).padStart(2, "0");
-const mmTomorrow = String(tomorrow.getMonth() + 1).padStart(2, "0");
-var yyyyTomorrow = tomorrow.getFullYear();
+let ddTomorrow = String(tomorrow.getDate()).padStart(2, "0");
+let mmTomorrow = String(tomorrow.getMonth() + 1).padStart(2, "0");
+let yyyyTomorrow = tomorrow.getFullYear();
 let tommorowFormatted = yyyyTomorrow + "-" + mmTomorrow + "-" + ddTomorrow;
 
 export const Home: React.FC<HomeProps> = () => {
